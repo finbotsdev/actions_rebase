@@ -1,0 +1,27 @@
+name: "Rebase"
+description: "Rebase a branch on a remote branch"
+branding:
+  icon: upload-cloud
+  color: green
+inputs:
+  github_token:
+    description: 'Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}'
+    required: true
+  target_branch:
+    default: "master"
+    description: "Destination branch to push changes."
+    required: false
+  target_repository:
+    default: ""
+    description: "Repository name to push. Default or empty value represents current github repository (${GITHUB_REPOSITORY})"
+    required: false
+  upstream_branch:
+    default: "master"
+    description: "Source branch from which changes will be pushed."
+    required: false
+  upstream_repository:
+    description: "Repository name to clone."
+    required: true
+runs:
+  using: "node12"
+  main: "start.js"
